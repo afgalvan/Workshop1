@@ -12,11 +12,10 @@ namespace Bank
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
 
             var bankAccount = new BankAccount("Rosa", 1000);
-            Console.WriteLine(
-                $"Cuenta {bankAccount.Id} fue creada para {bankAccount.Owner} con ${bankAccount.Balance}");
-            bankAccount.MakeWithdrawal(300, DateTime.Now, "Xbox One");
+            bankAccount.MakeWithdrawal(300, "Xbox One");
             Console.WriteLine(bankAccount.Balance);
             Console.WriteLine(bankAccount.GetAccountHistory());
+            Console.ReadKey();
         }
     }
 }

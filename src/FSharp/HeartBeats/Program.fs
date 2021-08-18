@@ -1,13 +1,53 @@
-﻿// Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
+﻿namespace HeartBeats
 
-open System
+module Domain =
+    type Genre =
+        | FEMALE = 220
+        | MALE = 210
 
-// Define a function to construct a message to print
-let from whom =
-    sprintf "from %s" whom
+    type Person(genre: Genre, age: int) =
+        member this.Genre = genre
+        member this.Age = age
 
-[<EntryPoint>]
-let main argv =
-    let message = from "F#" // Call the function
-    printfn "Hello world %s" message
-    0 // return an integer exit code
+        member this.HeartBeats() : float = (float (int this.Genre - this.Age)) / 10.0
+
+
+module private UserInput =
+    open Domain
+    open System
+
+    exception InvalidGenre of string
+
+    let private mapCharToGenre =
+        function
+        | 'F' -> Genre.FEMALE
+        | 'M' -> Genre.MALE
+        | _ -> raise (InvalidGenre "Genero inválido")
+
+
+    let rec private askGenre () : Genre =
+        printf "Ingresa tu género [F/M]: "
+
+        try
+            Console.ReadLine().ToUpper().[0] |> mapCharToGenre
+        with InvalidGenre msg ->
+            printfn $"%s{msg}\n"
+            askGenre ()
+
+    let private askAge () : int =
+        printf "Ingresa tú edad: "
+        int (Console.ReadLine())
+
+    let readUserInfo () : Person = (askGenre (), askAge ()) |> Person
+
+module Program =
+    open UserInput
+    open Domain
+
+    let showHeartBeats (person: Person) =
+        printf $"Su pulsacion es de %.2f{person.HeartBeats()}"
+
+    [<EntryPoint>]
+    let main _ =
+        readUserInfo () |> showHeartBeats
+        0

@@ -9,7 +9,7 @@ namespace Bank.Core
     public class BankAccount
     {
         public string  Id      { get; }
-        public string  Owner   { get; set; }
+        public string  Owner   { get; }
         public decimal Balance => _transactionHistory.Sum(transaction => transaction.Amount);
 
         private readonly List<Transaction> _transactionHistory = new();
@@ -18,23 +18,22 @@ namespace Bank.Core
         public BankAccount(string name, decimal initialBalance)
         {
             Owner = name;
-            MakeDeposit(initialBalance, DateTime.Now, "Initial Balance");
-            Id = _accountNumberSeed.ToString();
-            _accountNumberSeed++;
+            MakeDeposit(initialBalance, "Initial Balance");
+            Id = (_accountNumberSeed++).ToString();
         }
-
-        public void MakeDeposit(decimal amount, DateTime date, string note)
+    
+        public void MakeDeposit(decimal amount, string note)
         {
             if (amount <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(amount), "Amount of deposit must be positive.");
             }
 
-            var deposit = new Transaction(amount, date, note);
+            var deposit = new Transaction(amount, DateTime.Now, note);
             _transactionHistory.Add(deposit);
         }
 
-        public void MakeWithdrawal(decimal amount, DateTime date, string note)
+        public void MakeWithdrawal(decimal amount, string note)
         {
             if (amount <= 0)
             {
@@ -46,7 +45,7 @@ namespace Bank.Core
                 throw new InvalidOperationException("No hay suficientes fondos para este retiro.");
             }
 
-            var withdrawal = new Transaction(-amount, date, note);
+            var withdrawal = new Transaction(-amount, DateTime.Now, note);
             _transactionHistory.Add(withdrawal);
         }
 

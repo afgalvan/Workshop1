@@ -11,7 +11,7 @@ open FsUnit
 open NUnit.Framework
 
 [<Test>]
-let userShouldNotWithdrawMoreMoneyThanWhatHeHas () =
+let userShouldNotWithdrawMoreMoneyThanHisBalanceAmount () =
      true |> should equal true
 
 

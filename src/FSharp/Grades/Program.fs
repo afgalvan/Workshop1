@@ -25,18 +25,12 @@ module private UserInput =
         printf $"{gradeIndex}. Ingrese una nota: "
         float (Console.ReadLine())
 
-    let inline askUserGrades (amount: int) : float list =
-        [ for i in 1 .. amount do
-              askGrade i ]
+    let inline askUserGrades (amount: int) : float list = [ for i in 1 .. amount do askGrade i ]
 
 module private ConsoleOutput =
     open Domain
 
-    let resultString (grade: Grade) : string =
-        if grade.Passes() then
-            "ganó"
-        else
-            "perdió"
+    let resultString (grade: Grade) : string = if grade.Passes() then "ganó" else "perdió"
 
     let showResults (grade: Grade) : unit =
         printf $"\nEl estudiante {resultString grade} la materia con una nota de %.2f{grade.Prom()}."
@@ -50,5 +44,7 @@ module Program =
 
     [<EntryPoint>]
     let main _ =
-        askUserGrades gradesAmount |> Grade |> showResults
+        askUserGrades gradesAmount
+        |> Grade
+        |> showResults
         0

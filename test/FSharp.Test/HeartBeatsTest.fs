@@ -11,11 +11,14 @@ module FSharp.Test.HeartBeatsTest
 
 open FsUnit
 open NUnit.Framework
+open HeartBeats.Domain
 
 [<Test>]
 let shouldCalculateCorrectHeartBeatsWhenIsMale() =
-     true |> should equal true
+     let person = Person(Genre.MALE, 43)
+     person.HeartBeats() |> should equal 16.7
 
 [<Test>]
 let shouldCalculateCorrectHeartBeatsWhenIsFemale() =
-     true |> should equal true
+     let person = Person(Genre.FEMALE, 43)
+     person.HeartBeats() |> should equal 17.7

@@ -19,7 +19,6 @@ namespace CSharp.Test
             Assert.Throws<ArgumentOutOfRangeException>(() =>
                 _account.MakeDeposit(
                     -200,
-                    DateTime.Now,
                     "Attempt to do an invalid deposit")
             );
         }
@@ -36,7 +35,7 @@ namespace CSharp.Test
         public void ShouldThrowException_WhenTryingToOverdraw()
         {
             Assert.Throws<InvalidOperationException>(() =>
-                _account.MakeWithdrawal(500000, DateTime.Now, "Attempt to overdraw")
+                _account.MakeWithdrawal(500000, "Attempt to overdraw")
             );
         }
     }
