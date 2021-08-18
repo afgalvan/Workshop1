@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageId>CSharpSkeleton.Template</PackageId>
+    <Title>CSharpSkeleton.Template</Title>
+    <Authors>Andres Galvan</Authors>
+    <Description>Basic console application template</Description>
+    <PackageProjectUrl>https://github.com/afgalvan/CSharpSkeleton</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/afgalvan/CSharpSkeleton</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>solution console c# skeleton</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.html</PackageLicenseUrl>
+  </PropertyGroup>
+
+</Project>
