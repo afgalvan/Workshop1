@@ -1,1 +1,3 @@
-module Program = [<EntryPoint>] let main _ = 0
+namespace FSharp.Test
+
+module Program = [<EntryPoint>] let main _ =0
