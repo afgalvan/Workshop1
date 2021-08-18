@@ -8,16 +8,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs" />
         <Compile Include="GradesTest.fs" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="FsUnit" Version="4.0.6" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-        <PackageReference Include="NUnit" Version="3.13.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+        <PackageReference Include="NUnit" Version="3.13.2" />
         <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
-        <PackageReference Include="coverlet.collector" Version="3.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\CSharp\CSharp.csproj" />
+      <ProjectReference Include="..\..\src\FSharp\FSharp.fsproj" />
     </ItemGroup>
 
 </Project>
