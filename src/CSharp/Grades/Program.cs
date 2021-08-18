@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace CSharpSkeleton
+namespace Grades
 {
     class Program
     {

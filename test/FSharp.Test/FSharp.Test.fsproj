@@ -10,6 +10,8 @@
     <ItemGroup>
         <Compile Include="GradesTest.fs" />
         <Compile Include="Program.fs" />
+        <Compile Include="HeartBeatsTest.fs" />
+        <Compile Include="BankTest.fs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -22,6 +24,7 @@
     <ItemGroup>
       <ProjectReference Include="..\..\src\CSharp\CSharp.csproj" />
       <ProjectReference Include="..\..\src\FSharp\FSharp.fsproj" />
+      <ProjectReference Include="..\..\src\FSharp\Grades\Grades.fsproj" />
     </ItemGroup>
 
 </Project>

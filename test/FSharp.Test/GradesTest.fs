@@ -2,7 +2,7 @@ module FSharp.Test.GradesTest
 
 open NUnit.Framework
 open FsUnit
-open FSharp.Grades
+open Grades.Domain
 
 [<Test>]
 let shouldComputeCorrectAverage () =
