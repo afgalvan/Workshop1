@@ -13,7 +13,7 @@ namespace Bank.Core
         public decimal Balance => _transactionHistory.Sum(transaction => transaction.Amount);
 
         private readonly List<Transaction> _transactionHistory = new();
-        private static   int               _accountNumberSeed  = 123456789;
+        private static   int               _accountNumberSeed  = 12345678;
 
         public BankAccount(string name, decimal initialBalance)
         {
