@@ -1,6 +1,6 @@
-﻿namespace FSharp
+﻿namespace Grades
 
-module Grades =
+module Domain =
     type Grade(grades: float list) =
         member this.Grades = grades
 
@@ -30,7 +30,7 @@ module private UserInput =
               askGrade i ]
 
 module private ConsoleOutput =
-    open Grades
+    open Domain
 
     let resultString (grade: Grade) : string =
         if grade.Passes() then
@@ -42,7 +42,7 @@ module private ConsoleOutput =
         printf $"\nEl estudiante {resultString grade} la materia con una nota de %.2f{grade.Prom()}."
 
 module Program =
-    open Grades
+    open Domain
     open UserInput
     open ConsoleOutput
 

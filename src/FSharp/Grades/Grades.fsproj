@@ -5,15 +5,13 @@
         <TargetFramework>net5.0</TargetFramework>
         <WarnOn>3390;$(WarnOn)</WarnOn>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>Grades</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Grades.fs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include=".dockerignore" />
-      <Content Include="Dockerfile" />
+        <Content Include=".dockerignore" />
+        <Content Include="Dockerfile" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>
