@@ -13,7 +13,7 @@ namespace Bank.Core
         public decimal Balance => _transactionHistory.Sum(transaction => transaction.Amount);
 
         private readonly List<Transaction> _transactionHistory = new();
-        private static   int               _accountNumberSeed  = 12345678;
+        private static   int               _accountNumberSeed  = 1;
 
         public BankAccount(string name, decimal initialBalance)
         {
@@ -21,12 +21,12 @@ namespace Bank.Core
             MakeDeposit(initialBalance, "Initial Balance");
             Id = (_accountNumberSeed++).ToString();
         }
-    
+
         public void MakeDeposit(decimal amount, string note)
         {
             if (amount <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(amount), "Amount of deposit must be positive.");
+                throw new ArgumentOutOfRangeException(nameof(amount), "Cantidad a depositar debe ser mayor a 0.");
             }
 
             var deposit = new Transaction(amount, DateTime.Now, note);

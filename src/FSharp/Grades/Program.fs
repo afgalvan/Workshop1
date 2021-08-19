@@ -14,7 +14,6 @@ module Domain =
             ((fun x y -> x + y), (fun x -> x / float(this.Grades.Length)))
             ||> this.ComputeProm 
 
-
         member this.Passes() : bool = this.Prom() >= 3.0
 
 
