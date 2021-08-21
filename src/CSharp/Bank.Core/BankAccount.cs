@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Humanizer;
@@ -19,7 +20,7 @@ namespace Bank.Core
         {
             Owner = name;
             MakeDeposit(initialBalance, "Initial Balance");
-            Id = (_accountNumberSeed++).ToString();
+            Id = (_accountNumberSeed++).ToString(CultureInfo.InvariantCulture);
         }
 
         public void MakeDeposit(decimal amount, string note)
