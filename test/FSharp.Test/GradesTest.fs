@@ -1,3 +1,8 @@
+(*
+Capture 3 grades, take the Average and determine if the student won or
+lost the course (Greater than or equal to 3 won, otherwise lost)
+*)
+
 module FSharp.Test.GradesTest
 
 open NUnit.Framework
@@ -12,7 +17,7 @@ let shouldComputeCorrectAverage () =
     (Grade [ 3.0 .. 5.0 ]).Prom() |> should equal 4.0
 
 [<Test>]
-let gradeShouldPassIfMoreOrEqualThree () =
+let gradeShouldPassIfGreaterThanOrEqualToThree () =
     (Grade [ 3.0; 3.0; 3.0 ]).Passes()
     |> should equal true
 

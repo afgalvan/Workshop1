@@ -46,7 +46,7 @@ namespace HeartBeats
 
         private static int AskAge()
         {
-            Console.WriteLine("Ingresa tu edad: ");
+            Console.Write("Ingresa tu edad: ");
             return Convert.ToInt32(Console.ReadLine() ?? "0", CultureInfo.InvariantCulture);
         }
 
@@ -54,7 +54,7 @@ namespace HeartBeats
         {
             while (true)
             {
-                Console.WriteLine("Ingresa tu género [F/M]: ");
+                Console.Write("Ingresa tu género [F/M]: ");
                 try
                 {
                     return MapCharToGenre(Console.ReadLine()

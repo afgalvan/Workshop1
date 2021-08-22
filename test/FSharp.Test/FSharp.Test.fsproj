@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\src\FSharp\Bank\Bank.fsproj" />
         <ProjectReference Include="..\..\src\FSharp\Grades\Grades.fsproj" />
         <ProjectReference Include="..\..\src\FSharp\HeartBeats\HeartBeats.fsproj" />
     </ItemGroup>
